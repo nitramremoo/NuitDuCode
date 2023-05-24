@@ -1,0 +1,36 @@
+import pyxel
+
+#variables
+xPlayer = 0
+yPlayer = 0
+dir_x = 1
+dix_y = 1
+
+#CONSTANTES
+
+pyxel.init(128, 128, title="Nuit Du Code", fps=30, quit_key="pyxel.KEY_P")
+
+def coin_haut_droit:
+    return ((x+7)//8, y//8)
+def coin_haut_gauche:
+    return (x//8, y//8)
+def coin_bas_droit:
+    return ((x+7)//8, (y+7)//8)
+def coin_bas_gauche:
+    return (x//8, (y+7)//8)
+
+def update():
+    
+    global dix_x, dir_y
+    
+    if pyxel.btn(KEY_UP):
+        
+    if pyxel.btn(KEY_DOWN):
+        
+    if pyxel.btn(KEY_RIGHT):
+        
+    if pyxel.btn(KEY_LEFT):
+        
+def draw():
+    pyxel.cls(1)
+    pyxel.blt()
