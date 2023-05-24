@@ -68,32 +68,30 @@ def cbl(PLAYER, x_or_y):
             
             
 
-#function update()
+# function update()
 def update():
     
-    #import global variables
-    global xPlayer1, yPlayer1, xPlayer2, yPlayer2, speed
+    # import global variables
+    global xPlayer1, yPlayer1, xPlayer2, yPlayer2, factorPlayer1, factorPlayer2, global_speed
     
     """display variables for debug"""
     
-    #pyxel.text(0, 0, pyxel.pget(ctr("PLAYER_2", "x"), 7))
-    
-    #go up for player 1
+    # go up for player 1
     if (pyxel.btn(pyxel.KEY_UP)):
         yPlayer1 -= 1 * global_speed
-    #go down for player 1
+    # go down for player 1
     if (pyxel.btn(pyxel.KEY_DOWN)):
         yPlayer1 += 1 * global_speed
-    #go right for player 1
+    # go right for player 1
     if (pyxel.btn(pyxel.KEY_RIGHT)):
         xPlayer1 += 1 * global_speed
-    #go left for player 1
+    # go left for player 1
     if (pyxel.btn(pyxel.KEY_LEFT)):
         xPlayer1 -= 1 * global_speed
-    #attack for player 1
+    # attack for player 1
     if (pyxel.btn(pyxel.KEY_KP_0)):
         #^^^^^^animation here^^^^^^
-        if( (pyxel.pget(ctr("PLAYER_2", "x"), ctr("PLAYER_2", "y")) == 2) or (pyxel.pget(ctl("PLAYER_2", "x"), ctr("PLAYER_2", "y")) == 2) or (pyxel.pget(cbr("PLAYER_2", "x"), ctr("PLAYER_2", "y")) == 2) or (pyxel.pget(ctr("PLAYER_2", "x"), cbf("PLAYER_2", "y")) == 2)):
+        if((pyxel.pget(ctr("PLAYER_1", "x"), ctr("PLAYER_1", "y")) == 2) or (pyxel.pget(ctl("PLAYER_1", "x"), ctl("PLAYER_1", "y")) == 2) or (pyxel.pget(cbr("PLAYER_1", "x"), cbr("PLAYER_1", "y")) == 2) or (pyxel.pget(cbl("PLAYER_1", "x"), cbl("PLAYER_1", "y")) == 2)):
                 punch("PLAYER_2")
         
     # go up for player 2
@@ -110,12 +108,16 @@ def update():
         xPlayer2 -= 1 * global_speed
     # punch for player 2
     if (pyxel.btn(pyxel.KEY_SPACE)):
+        print("succes2")
          #^^^^^^animation here^^^^^^
-        if( (pyxel.pget(ctr("PLAYER_1", "x"), ctr("PLAYER_1", "y")) == 1) or (pyxel.pget(ctl("PLAYER_1", "x"), ctr("PLAYER_1", "y")) == 1) or (pyxel.pget(cbr("PLAYER_1", "x"), ctr("PLAYER_1", "y")) == 1) or (pyxel.pget(ctr("PLAYER_1", "x"), cbf("PLAYER_1", "y")) == 1)):
+        if( (pyxel.pget(ctr("PLAYER_2", "x"), ctr("PLAYER_2", "y")) == 1) or (pyxel.pget(ctl("PLAYER_2", "x"), ctl("PLAYER_2", "y")) == 1) or (pyxel.pget(cbr("PLAYER_2", "x"), cbr("PLAYER_2", "y")) == 1) or (pyxel.pget(cbl("PLAYER_2", "x"), cbl("PLAYER_2", "y")) == 1)):
+                print("Succes")
                 punch("PLAYER_1")
        
 # show characters with draw()
 def draw():
+    global factorPlayer1, factorPlayer2, xPlayer1, yPlayer1, xPlayer2, yPlayer2
+    
     pyxel.cls(0)
     pyxel.rect(xPlayer1, yPlayer1, (10 * factorPlayer1), (10 * factorPlayer1), 1)
     pyxel.rect(xPlayer2, yPlayer2, (10 * factorPlayer2), (10 * factorPlayer2), 2)
