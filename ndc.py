@@ -21,50 +21,50 @@ global_speed = 1
 def ctr(PLAYER, x_or_y):
     if (PLAYER == "PLAYER_1"):
         if (x_or_y == "x"):
-            return ((xPlayer1+7)//8)
+            return xPlayer1 + 9
         if (x_or_y == "y"):
-            return ((yPlayer1//8))
+            return yPlayer1
     if (PLAYER == "PLAYER_2"):
         if (x_or_y == "x"):
-            return ((xPlayer2+7)//8)
+            return xPlayer2 + 9
         if (x_or_y == "y"):
-            return ((yPlayer2//8))
+            return yPlayer2
 # top left corner
 def ctl(PLAYER, x_or_y):
     if (PLAYER == "PLAYER_1"):
         if (x_or_y == "x"):
-            return (xPlayer1//8)
+            return xPlayer1
         if (x_or_y == "y"):
-            return (yPlayer1//8)
+            return yPlayer1
     if (PLAYER == "PLAYER_2"):
         if (x_or_y == "x"):
-            return (xPlayer2//8)
+            return xPlayer2
         if (x_or_y == "y"):
-            return (yPlayer2//8)
+            return yPlayer2
 # bottom right corner
 def cbr(PLAYER, x_or_y):
     if (PLAYER == "PLAYER_1"):
         if (x_or_y == "x"):
-            return ((xPlayer1+7)//8)
+            return xPlayer1 + 9
         if (x_or_y == "y"):
-            return ((yPlayer1+7)//8)
+            return yPlayer1 + 9
     if (PLAYER == "PLAYER_2"):
         if (x_or_y == "x"):
-            return ((xPlayer2+7)//8)
+            return xPlayer2 + 9
         if (x_or_y == "y"):
-            return ((yPlayer2+7)//8)
+            return yPlayer2 + 9
 # bottom left corner
 def cbl(PLAYER, x_or_y):
     if (PLAYER == "PLAYER_1"):
         if (x_or_y == "x"):
-            return (xPlayer1//8)
+            return xPlayer1
         if (x_or_y == "y"):
-            return ((yPlayer1+7)//8)
+            return yPlayer1 + 9
     if (PLAYER == "PLAYER_2"):
         if (x_or_y == "x"):
-            return (xPlayer2//8)
+            return xPlayer2
         if (x_or_y == "y"):
-            return ((yPlayer2+7)//8)
+            return yPlayer2 + 9
             
             
 
@@ -89,9 +89,11 @@ def update():
     if (pyxel.btn(pyxel.KEY_LEFT)):
         xPlayer1 -= 1 * global_speed
     # attack for player 1
-    if (pyxel.btn(pyxel.KEY_KP_0)):
+    if (pyxel.btnp(pyxel.KEY_KP_0)):
         #^^^^^^animation here^^^^^^
+        print("Bouton pressé")
         if((pyxel.pget(ctr("PLAYER_1", "x"), ctr("PLAYER_1", "y")) == 2) or (pyxel.pget(ctl("PLAYER_1", "x"), ctl("PLAYER_1", "y")) == 2) or (pyxel.pget(cbr("PLAYER_1", "x"), cbr("PLAYER_1", "y")) == 2) or (pyxel.pget(cbl("PLAYER_1", "x"), cbl("PLAYER_1", "y")) == 2)):
+                print("Condition vrai")
                 punch("PLAYER_2")
         
     # go up for player 2
@@ -107,11 +109,11 @@ def update():
     if (pyxel.btn(pyxel.KEY_Q)):
         xPlayer2 -= 1 * global_speed
     # punch for player 2
-    if (pyxel.btn(pyxel.KEY_SPACE)):
-        print("succes2")
+    if (pyxel.btnp(pyxel.KEY_SPACE)):
+        print("Bouton pressé")
          #^^^^^^animation here^^^^^^
         if( (pyxel.pget(ctr("PLAYER_2", "x"), ctr("PLAYER_2", "y")) == 1) or (pyxel.pget(ctl("PLAYER_2", "x"), ctl("PLAYER_2", "y")) == 1) or (pyxel.pget(cbr("PLAYER_2", "x"), cbr("PLAYER_2", "y")) == 1) or (pyxel.pget(cbl("PLAYER_2", "x"), cbl("PLAYER_2", "y")) == 1)):
-                print("Succes")
+                print("Condition vraie")
                 punch("PLAYER_1")
        
 # show characters with draw()
