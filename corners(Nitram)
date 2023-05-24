@@ -18,7 +18,7 @@ def coin_haut_gauche():
 def coin_bas_droit():
     return ((x+7)//8, (y+7)//8)
 def coins_bas_gauche():
-    return (x//8, (x+7)//8)
+    return (x//8, (y+7)//8)
 
 def update():
     
