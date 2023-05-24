@@ -1,7 +1,7 @@
 import pyxel
 
-global xPlayer = 0
-global yPlayer = 0
+xPlayer = 0
+yPlayer = 0
 
 pyxel.init(128, 128, title="Nuit Du Code", fps=30, quit_key="pyxel.KEY_P")
 
