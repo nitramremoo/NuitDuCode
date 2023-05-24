@@ -1,1 +1,2 @@
-import pyxel
+import pyxel, time
+
