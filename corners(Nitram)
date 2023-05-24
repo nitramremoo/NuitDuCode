@@ -25,9 +25,9 @@ def update():
     global dix_x, dir_y, xPlayer, yPlayer, speed
     
     if pyxel.btn(pyxel.KEY_UP):
-        yPlayer = yPlayer - speed
+        yPlayer -= speed
     if pyxel.btn(pyxel.KEY_DOWN):
-        yPlayer = yPlayer + speed
+        yPlayer += speed
     if pyxel.btn(pyxel.KEY_RIGHT):
         dir_x = 1
         xPlayer = xPlayer + (speed * dir_x)
