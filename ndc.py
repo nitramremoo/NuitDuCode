@@ -2,22 +2,25 @@ import pyxel
 
 pyxel.init(128, 128, title="Nuit Du Code", fps=30, quit_key=pyxel.KEY_P)
 
-xPlayer = 10
-yPlayer = 10
+xPlayer1 = 10
+yPlayer1 = 10
 
 def update():
-
+    
+    global xPlayer1, yPlayer1
+    
     if (pyxel.btn(pyxel.KEY_UP)):
-        yPlayer -= 1
+        yPlayer1 -= 1
     if (pyxel.btn(pyxel.KEY_DOWN)):
-        yPlayer += 1
+        yPlayer1 += 1
     if (pyxel.btn(pyxel.KEY_RIGHT)):
-        xPlayer += 1
+        xPlayer1 += 1
     if (pyxel.btn(pyxel.KEY_LEFT)):
-        xPlayer -= 1
+        xPlayer1 -= 1
         
 def draw():
     pyxel.cls(0)
-    pyxel.rect(xPlayer, yPlayer, 10, 10, 2)
+    pyxel.rect(xPlayer1, yPlayer1, 10, 10, 1)
     
 pyxel.run(update, draw)
+pyxel.show()
