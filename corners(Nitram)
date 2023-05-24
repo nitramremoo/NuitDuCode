@@ -41,3 +41,67 @@ def draw():
     pyxel.rect(xPlayer, yPlayer, 8, 8, 2)
 
 pyxel.run(update, draw)
+
+import pyxel
+
+#variables
+x = 108
+x2 = 10
+y = 60
+y2 = 30
+dir_x = -1
+dir_x2 = 1
+speed = 1.5
+
+#CONSTANTES
+SCREEN_SIZE = 128
+#LAVE = [(24,16),(96,16),(96,24),(96,96),(24,96)]
+pyxel.init(SCREEN_SIZE, SCREEN_SIZE, title="Nuit Du Code")
+pyxel.load("theme_v2.pyxres")
+
+
+def update():
+    
+    global dix_x, dir_x2, speed, x, y, x2, y2
+    
+    def coin_haut_droit():
+        return ((x+7)//8, y//8)
+    def coin_haut_gauche():
+        return (x//8, y//8)
+    def coin_bas_droit():
+        return ((x+7)//8, (y+7)//8)
+    def coin_bas_gauche():
+        return (x//8, (y+7)//8) 
+    
+    if pyxel.btn(pyxel.KEY_UP):
+        y = y - speed
+    if pyxel.btn(pyxel.KEY_DOWN):
+        y = y + speed
+    if pyxel.btn(pyxel.KEY_RIGHT):
+        dir_x = 1
+        x = x + (speed * dir_x)
+    if pyxel.btn(pyxel.KEY_LEFT):
+        dir_x = -1
+        x = x + (speed * dir_x)
+        
+    if pyxel.btn(pyxel.KEY_Z):
+        y2 = y2 - speed
+    if pyxel.btn(pyxel.KEY_S):
+        y2 = y2 + speed
+    if pyxel.btn(pyxel.KEY_D):
+        dir_x2 = 1
+        x2 = x2 + (speed * dir_x2)
+    if pyxel.btn(pyxel.KEY_Q):
+        dir_x2 = -1
+        x2 = x2 + (speed * dir_x2)
+    
+def draw():
+    
+    global x, x2, y, y2, SCREEN_SIZE, dir_x, dir_x2
+    pyxel.cls(0)
+    pyxel.bltm(0,0,0,0,0,SCREEN_SIZE,SCREEN_SIZE)
+    pyxel.blt(x, y, 0, 24, 64, 8 * dir_x, 8, pyxel.COLOR_BLACK)
+    pyxel.blt(x, y, 0, 24, 72, 8 * dir_x2, 8, pyxel.COLOR_BLACK)
+
+pyxel.run(update, draw)
+pyxel.show()
