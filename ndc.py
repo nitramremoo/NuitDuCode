@@ -6,6 +6,9 @@ xPlayer1 = 10
 yPlayer1 = 10
 speed = 1
 
+#tirs = []
+#tir_coo = []
+
 def update():
     
     global xPlayer1, yPlayer1, speed
@@ -18,12 +21,15 @@ def update():
         xPlayer1 += 1 * speed
     if (pyxel.btn(pyxel.KEY_LEFT)):
         xPlayer1 -= 1 * speed
-    if (pyxel.btn(pyxel.KEY_S)):
-        speed += 1
+    if (pyxel.btn(pyxel.KEY_SPACE)):
+        fire()
         
 def draw():
     pyxel.cls(0)
     pyxel.rect(xPlayer1, yPlayer1, 10, 10, 1)
+    
+def punch():
+    
     
 pyxel.run(update, draw)
 pyxel.show()
