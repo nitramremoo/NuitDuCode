@@ -7,13 +7,13 @@ yPlayer = 10
 
 def update():
 
-    if (pyxel.btn(pyxel.KEY_UP) and y > 0):
+    if (pyxel.btn(pyxel.KEY_UP)):
         yPlayer -= 1
-    if (pyxel.btn(pyxel.KEY_DOWN) and y < 129):
+    if (pyxel.btn(pyxel.KEY_DOWN)):
         yPlayer += 1
-    if (pyxel.btn(pyxel.KEY_RIGHT) and x < 129):
+    if (pyxel.btn(pyxel.KEY_RIGHT)):
         xPlayer += 1
-    if (pyxel.btn(pyxel.KEY_LEFT) and x > 0):
+    if (pyxel.btn(pyxel.KEY_LEFT)):
         xPlayer -= 1
         
 def draw():
